@@ -1,12 +1,12 @@
-### Learning from Wrong Predictions in Low-Resource Neural Machine Translation
+## Learning from Wrong Predictions in Low-Resource Neural Machine Translation
 
 Clean and provvisory code base for USKI pre-training described in "[Learning from Wrong Predictions in Low-Resource Neural Machine Translation](https://aclanthology.org/2024.lrec-main.896/)" presented at [LREC-COLING 2024](https://lrec-coling-2024.org/).<br>
 
-##### Requirements
+### Requirements
 * python >= 3.7
 * torch
 
-#### Sample Usage
+### Sample Usage
 
 The dataset Uzbek-English translation dataset is selected as an example.
 
@@ -55,7 +55,7 @@ in the standard training and during the USKI pre-training. <br><br>
 Visualization is provided on temrinal, results can be monitored in the files  `NORMAL_output.txt` and `NORMAL_output.txt`.
 
 
-##### Reference
+### Reference
 
 If you find this repository useful, please consider citing (no obligation):
 
@@ -69,7 +69,7 @@ If you find this repository useful, please consider citing (no obligation):
 }
 ```
 
-#### Acknowledgments
+### Acknowledgments
 
 We thank the contributors of the [OPUS Corpus](https://opus.nlpl.eu/) which provided
 the Uzbek-English dataset. <br>
