@@ -2,3 +2,4 @@
 !/github_ignore_material/raw_data/.gitkeep
 /github_ignore_material/saves/*
 !/github_ignore_material/saves/.gitkeep
+**/__pycache__/*
