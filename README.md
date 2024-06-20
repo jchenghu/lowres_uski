@@ -46,6 +46,12 @@ python3.7 train.py \
 
 ```
 
+Evaluation is based on SacreBLEU and it is automatically handled. <br>
+
+Tune the arguments "batch size", "num_accum", "pretrain_batch_size" and "pretrain_num_accum" 
+according to the available computational resources. They refer to the batch size
+in the standard training and during the USKI pre-training. <br><br>
+
 Visualization is provided on temrinal, results can be monitored in the files  `NORMAL_output.txt` and `NORMAL_output.txt`.
 
 
@@ -66,5 +72,7 @@ If you find this repository useful, please consider citing (no obligation):
 #### Acknowledgments
 
 We thank the contributors of the [OPUS Corpus](https://opus.nlpl.eu/) which provided
-the Uzbek-English dataset.
+the Uzbek-English dataset. <br>
+We also adopted the [BPE](https://github.com/rsennrich/subword-nmt) tokenization algorithm. <br>
+
 
