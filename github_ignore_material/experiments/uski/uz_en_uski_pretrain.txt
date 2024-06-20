@@ -1,0 +1,58 @@
+
+python3.7 train_USKI.py --selected_model transformer --N 3 \
+    --dropout 0.15 --seed 1234  --num_epochs 320 \
+    --max_len 250  --min_len 2 \
+    --d_model 128 \
+    --sched_type noam --warmup_steps 400 \
+    --batch_size 4096 --num_accum 1 \
+    --pretrain_batch_size 256 --pretrain_num_accum 1 \
+    --num_pretrain_iter 42000 \
+    --eval_beam_size 4 \
+    --eval_batch_size 32 \
+    --save_path ./github_ignore_material/saves/ \
+    --language uz-en_4000 --num_gpus 1 \
+    --ddp_sync_port 12139 &> output.txt &
+
+
+    Train epoch: 0 - it 500 / 6801 final loss: 3.682617 pre-train val: 2.709061 Transl Val loss: 10.8262 acc: 0.0106 | Elapsed: 1.284 min
+    Train epoch: 0 - it 1000 / 6801 final loss: 3.020777 pre-train val: 2.255212 Transl Val loss: 12.0463 acc: 0.0006 | Elapsed: 2.56 min
+    Train epoch: 0 - it 1500 / 6801 final loss: 2.732134 pre-train val: 2.085179 Transl Val loss: 12.4026 acc: 0.0006 | Elapsed: 3.819 min
+    Train epoch: 0 - it 2000 / 6801 final loss: 2.566327 pre-train val: 1.991873 Transl Val loss: 12.8797 acc: 0.0006 | Elapsed: 5.07 min
+    Train epoch: 0 - it 2500 / 6801 final loss: 2.457591 pre-train val: 1.939267 Transl Val loss: 13.1366 acc: 0.0006 | Elapsed: 6.289 min
+    Train epoch: 0 - it 3000 / 6801 final loss: 2.380664 pre-train val: 1.896495 Transl Val loss: 13.1973 acc: 0.0006 | Elapsed: 7.551 min
+    Train epoch: 0 - it 3500 / 6801 final loss: 2.322992 pre-train val: 1.880341 Transl Val loss: 13.3204 acc: 0.0006 | Elapsed: 8.764 min
+    Train epoch: 0 - it 4000 / 6801 final loss: 2.277386 pre-train val: 1.850724 Transl Val loss: 13.3129 acc: 0.0006 | Elapsed: 10.007 min
+    Train epoch: 0 - it 4500 / 6801 final loss: 2.241383 pre-train val: 1.851152 Transl Val loss: 13.131 acc: 0.0006 | Elapsed: 11.279 min
+    Train epoch: 0 - it 5000 / 6801 final loss: 2.211145 pre-train val: 1.827106 Transl Val loss: 13.0077 acc: 0.0006 | Elapsed: 12.577 min
+    ...
+    Train epoch: 5 - it 40005 / 6801 final loss: 1.930504 pre-train val: 1.735714 Transl Val loss: 12.1118 acc: 0.0006 | Elapsed: 99.971 min
+
+    SacreBLEU: BLEU = 0.55 25.0/3.1/0.8/0.0 (BP = 0.461 ratio = 0.563 hyp_len = 2152 ref_len = 3819)
+    SacreBLEU: BLEU = 0.72 23.6/2.5/0.8/0.1 (BP = 0.464 ratio = 0.565 hyp_len = 2159 ref_len = 3819)
+    SacreBLEU: BLEU = 1.77 24.7/4.9/1.4/0.5 (BP = 0.600 ratio = 0.662 hyp_len = 2527 ref_len = 3819)
+    SacreBLEU: BLEU = 2.76 29.1/6.1/2.2/0.8 (BP = 0.657 ratio = 0.704 hyp_len = 2688 ref_len = 3819)
+    SacreBLEU: BLEU = 3.72 29.8/7.0/2.8/1.3 (BP = 0.709 ratio = 0.744 hyp_len = 2843 ref_len = 3819)
+    SacreBLEU: BLEU = 4.67 28.8/8.0/3.3/1.6 (BP = 0.791 ratio = 0.810 hyp_len = 3093 ref_len = 3819)
+    SacreBLEU: BLEU = 5.36 33.1/10.4/5.4/3.3 (BP = 0.605 ratio = 0.665 hyp_len = 2541 ref_len = 3819)
+    SacreBLEU: BLEU = 8.03 30.4/10.2/5.9/4.1 (BP = 0.863 ratio = 0.872 hyp_len = 3329 ref_len = 3819)
+    SacreBLEU: BLEU = 8.14 33.3/11.8/7.3/5.1 (BP = 0.742 ratio = 0.770 hyp_len = 2941 ref_len = 3819)
+    SacreBLEU: BLEU = 10.79 34.2/13.8/9.4/7.4 (BP = 0.801 ratio = 0.818 hyp_len = 3125 ref_len = 3819)
+    SacreBLEU: BLEU = 11.90 37.8/15.6/11.2/9.2 (BP = 0.759 ratio = 0.784 hyp_len = 2993 ref_len = 3819)
+    SacreBLEU: BLEU = 13.89 36.1/15.9/12.0/10.1 (BP = 0.855 ratio = 0.864 hyp_len = 3301 ref_len = 3819)
+    SacreBLEU: BLEU = 15.60 36.8/17.7/13.9/12.5 (BP = 0.852 ratio = 0.862 hyp_len = 3292 ref_len = 3819)
+    SacreBLEU: BLEU = 16.00 38.0/18.5/14.5/13.1 (BP = 0.837 ratio = 0.849 hyp_len = 3241 ref_len = 3819)
+    SacreBLEU: BLEU = 15.91 35.3/16.4/13.1/12.0 (BP = 0.917 ratio = 0.920 hyp_len = 3515 ref_len = 3819)
+    SacreBLEU: BLEU = 17.12 39.8/19.7/16.2/15.1 (BP = 0.818 ratio = 0.832 hyp_len = 3179 ref_len = 3819)
+    SacreBLEU: BLEU = 18.38 38.4/19.4/16.1/15.2 (BP = 0.890 ratio = 0.896 hyp_len = 3420 ref_len = 3819)
+    SacreBLEU: BLEU = 18.00 39.2/19.7/16.6/15.5 (BP = 0.852 ratio = 0.862 hyp_len = 3292 ref_len = 3819)
+    SacreBLEU: BLEU = 19.76 39.3/20.3/17.0/16.1 (BP = 0.913 ratio = 0.916 hyp_len = 3500 ref_len = 3819)
+    SacreBLEU: BLEU = 18.96 40.9/21.2/18.4/17.8 (BP = 0.821 ratio = 0.836 hyp_len = 3191 ref_len = 3819)
+    SacreBLEU: BLEU = 19.43 38.2/19.7/16.3/15.5 (BP = 0.930 ratio = 0.933 hyp_len = 3562 ref_len = 3819)
+    SacreBLEU: BLEU = 19.93 40.1/20.8/17.4/16.5 (BP = 0.902 ratio = 0.906 hyp_len = 3461 ref_len = 3819)
+    SacreBLEU: BLEU = 20.01 39.6/20.0/16.8/15.8 (BP = 0.934 ratio = 0.936 hyp_len = 3574 ref_len = 3819)
+    SacreBLEU: BLEU = 19.92 38.1/19.4/16.2/15.2 (BP = 0.964 ratio = 0.965 hyp_len = 3685 ref_len = 3819)
+    SacreBLEU: BLEU = 20.21 38.3/19.2/15.7/14.8 (BP = 0.994 ratio = 0.994 hyp_len = 3795 ref_len = 3819)
+    SacreBLEU: BLEU = 20.16 39.4/19.5/16.5/15.5 (BP = 0.958 ratio = 0.959 hyp_len = 3661 ref_len = 3819)
+    SacreBLEU: BLEU = 19.78 37.7/19.5/16.4/15.5 (BP = 0.953 ratio = 0.954 hyp_len = 3644 ref_len = 3819)
+    SacreBLEU: BLEU = 20.12 38.2/19.7/16.2/15.2 (BP = 0.970 ratio = 0.971 hyp_len = 3707 ref_len = 3819)
+    SacreBLEU: BLEU = 20.02 37.5/19.0/16.0/15.0 (BP = 0.983 ratio = 0.984 hyp_len = 3756 ref_len = 3819)

@@ -1,0 +1,107 @@
+
+python3.7 train_USKI.py --selected_model transformer --N 3 \
+        --dropout 0.15 --seed 1234  --num_epochs 300 \
+        --max_len 250  --min_len 2 \
+        --d_model 128 \
+        --sched_type noam --warmup_steps 400 \
+        --batch_size 2048 --num_accum 2 \
+        --pretrain_batch_size 128 --pretrain_num_accum 2 \
+        --num_pretrain_iter 30000 \
+        --eval_beam_size 4 \
+        --eval_batch_size 32 \
+        --reverse_src_trg True \
+        --save_path ./github_ignore_material/saves/ \
+        --language uz-en_4000 --num_gpus 1 \
+        --ddp_sync_port 12139 &> output.txt &
+
+
+            Train epoch: 0 - it 500 / 3418 final loss: 5.757405 pre-train val: 4.789663 Transl Val loss: 8.2397 acc: 0.0223 | Elapsed: 0.793 min
+            Train epoch: 0 - it 1000 / 3418 final loss: 5.045761 pre-train val: 3.768073 Transl Val loss: 9.4966 acc: 0.0102 | Elapsed: 1.584 min
+            Train epoch: 0 - it 1500 / 3418 final loss: 4.487237 pre-train val: 2.859483 Transl Val loss: 11.2575 acc: 0.0054 | Elapsed: 2.393 min
+            Train epoch: 0 - it 2000 / 3418 final loss: 4.039002 pre-train val: 2.367487 Transl Val loss: 12.4264 acc: 0.0044 | Elapsed: 3.203 min
+            Train epoch: 0 - it 2500 / 3418 final loss: 3.695974 pre-train val: 2.120539 Transl Val loss: 13.6855 acc: 0.0015 | Elapsed: 4.024 min
+            Train epoch: 0 - it 3000 / 3418 final loss: 3.432472 pre-train val: 2.011462 Transl Val loss: 13.2719 acc: 0.0012 | Elapsed: 4.854 min
+            Train epoch: 1 - it 3918 / 3418 final loss: 3.089839 pre-train val: 1.883804 Transl Val loss: 14.0054 acc: 0.0012 | Elapsed: 6.334 min
+            Train epoch: 1 - it 4418 / 3418 final loss: 2.953345 pre-train val: 1.838243 Transl Val loss: 13.4761 acc: 0.0012 | Elapsed: 7.142 min
+            Train epoch: 1 - it 4918 / 3418 final loss: 2.840765 pre-train val: 1.808524 Transl Val loss: 13.8965 acc: 0.0012 | Elapsed: 7.945 min
+            Train epoch: 1 - it 5418 / 3418 final loss: 2.746924 pre-train val: 1.796444 Transl Val loss: 14.1997 acc: 0.0012 | Elapsed: 8.744 min
+            Train epoch: 1 - it 5918 / 3418 final loss: 2.666571 pre-train val: 1.770279 Transl Val loss: 14.1899 acc: 0.0012 | Elapsed: 9.553 min
+            Train epoch: 1 - it 6418 / 3418 final loss: 2.597627 pre-train val: 1.760578 Transl Val loss: 13.6465 acc: 0.0012 | Elapsed: 10.37 min
+            Train epoch: 2 - it 7336 / 3418 final loss: 2.492671 pre-train val: 1.741321 Transl Val loss: 13.7442 acc: 0.0012 | Elapsed: 11.834 min
+            Train epoch: 2 - it 7836 / 3418 final loss: 2.44496 pre-train val: 1.723024 Transl Val loss: 13.5313 acc: 0.0012 | Elapsed: 12.639 min
+            Train epoch: 2 - it 8336 / 3418 final loss: 2.402553 pre-train val: 1.718264 Transl Val loss: 13.5348 acc: 0.0012 | Elapsed: 13.443 min
+            Train epoch: 2 - it 8836 / 3418 final loss: 2.364718 pre-train val: 1.713006 Transl Val loss: 13.4782 acc: 0.0012 | Elapsed: 14.244 min
+            Train epoch: 2 - it 9336 / 3418 final loss: 2.330299 pre-train val: 1.706132 Transl Val loss: 13.141 acc: 0.0012 | Elapsed: 15.055 min
+            Train epoch: 2 - it 9836 / 3418 final loss: 2.299378 pre-train val: 1.701641 Transl Val loss: 13.225 acc: 0.0012 | Elapsed: 15.871 min
+            Train epoch: 3 - it 10754 / 3418 final loss: 2.248998 pre-train val: 1.696006 Transl Val loss: 13.2085 acc: 0.0012 | Elapsed: 17.331 min
+            Train epoch: 3 - it 11254 / 3418 final loss: 2.224861 pre-train val: 1.690263 Transl Val loss: 12.9815 acc: 0.0012 | Elapsed: 18.135 min
+            Train epoch: 3 - it 11754 / 3418 final loss: 2.202799 pre-train val: 1.688316 Transl Val loss: 13.0622 acc: 0.0012 | Elapsed: 18.935 min
+            Train epoch: 3 - it 12254 / 3418 final loss: 2.182559 pre-train val: 1.68871 Transl Val loss: 13.2293 acc: 0.0012 | Elapsed: 19.733 min
+            Train epoch: 3 - it 12754 / 3418 final loss: 2.163562 pre-train val: 1.681879 Transl Val loss: 12.9855 acc: 0.0012 | Elapsed: 20.542 min
+            Train epoch: 3 - it 13254 / 3418 final loss: 2.146067 pre-train val: 1.682836 Transl Val loss: 13.0052 acc: 0.0012 | Elapsed: 21.356 min
+            Train epoch: 4 - it 14172 / 3418 final loss: 2.116618 pre-train val: 1.677821 Transl Val loss: 13.1172 acc: 0.0012 | Elapsed: 22.815 min
+            Train epoch: 4 - it 14672 / 3418 final loss: 2.102106 pre-train val: 1.676522 Transl Val loss: 13.2118 acc: 0.0012 | Elapsed: 23.62 min
+            Train epoch: 4 - it 15172 / 3418 final loss: 2.088669 pre-train val: 1.674756 Transl Val loss: 12.997 acc: 0.0012 | Elapsed: 24.421 min
+            Train epoch: 4 - it 15672 / 3418 final loss: 2.076052 pre-train val: 1.671876 Transl Val loss: 12.8673 acc: 0.0012 | Elapsed: 25.22 min
+            Train epoch: 4 - it 15172 / 3418 final loss: 2.088669 pre-train val: 1.674756 Transl Val loss: 12.997 acc: 0.0012 | Elapsed: 24.421 min
+            Train epoch: 4 - it 15672 / 3418 final loss: 2.076052 pre-train val: 1.671876 Transl Val loss: 12.8673 acc: 0.0012 | Elapsed: 25.22 min
+            Train epoch: 4 - it 16172 / 3418 final loss: 2.063912 pre-train val: 1.669229 Transl Val loss: 13.0064 acc: 0.0012 | Elapsed: 26.03 min
+            Train epoch: 4 - it 16672 / 3418 final loss: 2.052636 pre-train val: 1.670471 Transl Val loss: 12.8326 acc: 0.0012 | Elapsed: 26.844 min
+            Train epoch: 5 - it 17590 / 3418 final loss: 2.033187 pre-train val: 1.668338 Transl Val loss: 12.7858 acc: 0.0012 | Elapsed: 28.305 min
+            Train epoch: 5 - it 18090 / 3418 final loss: 2.023455 pre-train val: 1.664318 Transl Val loss: 13.1143 acc: 0.0012 | Elapsed: 29.109 min
+            Train epoch: 5 - it 18590 / 3418 final loss: 2.014346 pre-train val: 1.667382 Transl Val loss: 12.8956 acc: 0.0012 | Elapsed: 29.91 min
+            Train epoch: 5 - it 19090 / 3418 final loss: 2.005692 pre-train val: 1.666312 Transl Val loss: 12.7495 acc: 0.0012 | Elapsed: 30.707 min
+            Train epoch: 5 - it 19590 / 3418 final loss: 1.997286 pre-train val: 1.662431 Transl Val loss: 12.8617 acc: 0.0012 | Elapsed: 31.515 min
+            Saved checkpoint: ./github_ignore_material/saves/ANALYSIS_pretrained_model_typeB.pt_20001
+            Train epoch: 5 - it 20090 / 3418 final loss: 1.9894 pre-train val: 1.661739 Transl Val loss: 12.812 acc: 0.0012 | Elapsed: 32.329 min
+            Train epoch: 6 - it 21008 / 3418 final loss: 1.975586 pre-train val: 1.661161 Transl Val loss: 12.8071 acc: 0.0012 | Elapsed: 33.788 min
+            Train epoch: 6 - it 21508 / 3418 final loss: 1.96857 pre-train val: 1.66074 Transl Val loss: 12.7717 acc: 0.0012 | Elapsed: 34.59 min
+            Train epoch: 6 - it 22008 / 3418 final loss: 1.961944 pre-train val: 1.658378 Transl Val loss: 12.6971 acc: 0.0012 | Elapsed: 35.391 min
+            Train epoch: 6 - it 22508 / 3418 final loss: 1.955619 pre-train val: 1.65985 Transl Val loss: 12.619 acc: 0.0012 | Elapsed: 36.188 min
+            Train epoch: 6 - it 23008 / 3418 final loss: 1.949415 pre-train val: 1.65599 Transl Val loss: 12.71 acc: 0.0012 | Elapsed: 36.996 min
+            Train epoch: 6 - it 23508 / 3418 final loss: 1.943571 pre-train val: 1.657549 Transl Val loss: 12.6816 acc: 0.0012 | Elapsed: 37.812 min
+            Train epoch: 7 - it 24426 / 3418 final loss: 1.933202 pre-train val: 1.654907 Transl Val loss: 12.6638 acc: 0.0012 | Elapsed: 39.27 min
+            Train epoch: 7 - it 24926 / 3418 final loss: 1.927904 pre-train val: 1.65515 Transl Val loss: 12.6728 acc: 0.0012 | Elapsed: 40.073 min
+            Train epoch: 7 - it 25426 / 3418 final loss: 1.922871 pre-train val: 1.654691 Transl Val loss: 12.5253 acc: 0.0012 | Elapsed: 40.874 min
+            Train epoch: 7 - it 25926 / 3418 final loss: 1.918028 pre-train val: 1.653458 Transl Val loss: 12.546 acc: 0.0012 | Elapsed: 41.671 min
+            Train epoch: 7 - it 26426 / 3418 final loss: 1.913212 pre-train val: 1.65014 Transl Val loss: 12.3886 acc: 0.0012 | Elapsed: 42.481 min
+            Train epoch: 7 - it 26926 / 3418 final loss: 1.908677 pre-train val: 1.650539 Transl Val loss: 12.6392 acc: 0.0012 | Elapsed: 43.297 min
+            Train epoch: 8 - it 27844 / 3418 final loss: 1.900582 pre-train val: 1.652161 Transl Val loss: 12.5063 acc: 0.0012 | Elapsed: 44.756 min
+            Train epoch: 8 - it 28344 / 3418 final loss: 1.896425 pre-train val: 1.650597 Transl Val loss: 12.542 acc: 0.0012 | Elapsed: 45.56 min
+            Train epoch: 8 - it 28844 / 3418 final loss: 1.892467 pre-train val: 1.650026 Transl Val loss: 12.565 acc: 0.0012 | Elapsed: 46.361 min
+            Train epoch: 8 - it 29344 / 3418 final loss: 1.888648 pre-train val: 1.648647 Transl Val loss: 12.745 acc: 0.0012 | Elapsed: 47.16 min
+            Train epoch: 8 - it 29844 / 3418 final loss: 1.88483 pre-train val: 1.648148 Transl Val loss: 12.6096 acc: 0.0012 | Elapsed: 47.97 min
+            Reached early step iter, exiting pre-training
+
+            SacreBLEU: BLEU = 0.08 3.5/0.2/0.0/0.0 (BP = 1.000 ratio = 2.620 hyp_len = 8111 ref_len = 3096)
+            SacreBLEU: BLEU = 0.41 10.5/0.8/0.1/0.0 (BP = 1.000 ratio = 1.095 hyp_len = 3389 ref_len = 3096)
+            SacreBLEU: BLEU = 0.98 19.5/2.1/0.6/0.2 (BP = 0.682 ratio = 0.724 hyp_len = 2240 ref_len = 3096)
+            SacreBLEU: BLEU = 2.80 20.2/3.5/1.7/1.1 (BP = 0.836 ratio = 0.848 hyp_len = 2625 ref_len = 3096)
+            SacreBLEU: BLEU = 2.38 19.2/3.6/1.2/0.7 (BP = 0.870 ratio = 0.878 hyp_len = 2718 ref_len = 3096)
+            SacreBLEU: BLEU = 5.11 19.0/5.1/3.1/2.4 (BP = 0.988 ratio = 0.988 hyp_len = 3060 ref_len = 3096)
+            SacreBLEU: BLEU = 5.18 21.2/5.5/3.3/2.6 (BP = 0.924 ratio = 0.927 hyp_len = 2869 ref_len = 3096)
+            SacreBLEU: BLEU = 7.81 22.1/7.7/5.4/4.6 (BP = 0.964 ratio = 0.964 hyp_len = 2986 ref_len = 3096)
+            SacreBLEU: BLEU = 9.59 27.4/10.7/8.3/7.2 (BP = 0.834 ratio = 0.846 hyp_len = 2620 ref_len = 3096)
+            SacreBLEU: BLEU = 11.09 25.8/10.5/8.4/7.8 (BP = 0.959 ratio = 0.960 hyp_len = 2971 ref_len = 3096)
+            SacreBLEU: BLEU = 12.75 28.2/13.3/11.4/10.8 (BP = 0.869 ratio = 0.877 hyp_len = 2714 ref_len = 3096)
+            SacreBLEU: BLEU = 13.74 29.3/14.2/12.1/11.5 (BP = 0.887 ratio = 0.893 hyp_len = 2764 ref_len = 3096)
+            SacreBLEU: BLEU = 16.61 31.2/16.8/15.0/14.8 (BP = 0.900 ratio = 0.904 hyp_len = 2800 ref_len = 3096)
+            SacreBLEU: BLEU = 17.74 31.0/17.4/16.1/16.0 (BP = 0.918 ratio = 0.922 hyp_len = 2853 ref_len = 3096)
+            SacreBLEU: BLEU = 18.39 29.8/16.6/15.3/15.1 (BP = 1.000 ratio = 1.006 hyp_len = 3115 ref_len = 3096)
+            SacreBLEU: BLEU = 18.19 32.5/18.4/17.1/16.9 (BP = 0.893 ratio = 0.898 hyp_len = 2780 ref_len = 3096)
+            SacreBLEU: BLEU = 18.37 31.6/18.1/16.8/16.7 (BP = 0.917 ratio = 0.920 hyp_len = 2849 ref_len = 3096)
+            SacreBLEU: BLEU = 17.83 31.8/17.9/16.8/16.5 (BP = 0.895 ratio = 0.900 hyp_len = 2787 ref_len = 3096)
+            SacreBLEU: BLEU = 19.02 32.7/18.8/17.2/17.2 (BP = 0.921 ratio = 0.924 hyp_len = 2861 ref_len = 3096)
+            SacreBLEU: BLEU = 18.83 32.6/18.6/17.0/16.9 (BP = 0.921 ratio = 0.924 hyp_len = 2862 ref_len = 3096)
+            SacreBLEU: BLEU = 19.08 32.4/18.4/17.1/16.9 (BP = 0.935 ratio = 0.937 hyp_len = 2902 ref_len = 3096)
+            SacreBLEU: BLEU = 18.50 32.3/18.4/16.9/16.7 (BP = 0.915 ratio = 0.918 hyp_len = 2842 ref_len = 3096)
+            SacreBLEU: BLEU = 18.92 32.8/18.4/16.9/16.7 (BP = 0.931 ratio = 0.933 hyp_len = 2889 ref_len = 3096)
+            SacreBLEU: BLEU = 18.91 32.9/18.9/17.2/17.1 (BP = 0.915 ratio = 0.919 hyp_len = 2844 ref_len = 3096)
+            SacreBLEU: BLEU = 18.61 31.5/17.7/16.2/16.0 (BP = 0.954 ratio = 0.955 hyp_len = 2957 ref_len = 3096)
+            SacreBLEU: BLEU = 19.22 33.3/19.7/18.4/18.3 (BP = 0.886 ratio = 0.892 hyp_len = 2762 ref_len = 3096)
+            SacreBLEU: BLEU = 19.38 32.6/18.6/17.2/17.0 (BP = 0.945 ratio = 0.947 hyp_len = 2931 ref_len = 3096)
+            SacreBLEU: BLEU = 19.55 34.2/19.1/17.5/17.4 (BP = 0.925 ratio = 0.928 hyp_len = 2872 ref_len = 3096)
+            SacreBLEU: BLEU = 19.03 33.2/18.7/17.4/17.2 (BP = 0.917 ratio = 0.921 hyp_len = 2850 ref_len = 3096)
+            SacreBLEU: BLEU = 19.50 32.5/18.8/17.4/17.1 (BP = 0.945 ratio = 0.946 hyp_len = 2929 ref_len = 3096)
+            SacreBLEU: BLEU = 19.56 34.4/19.7/18.1/18.0 (BP = 0.903 ratio = 0.907 hyp_len = 2808 ref_len = 3096)
+

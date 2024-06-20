@@ -1,0 +1,473 @@
+
+python3.7 train.py \
+            --selected_model transformer --N 3 \
+            --dropout 0.15 --seed 1234  --num_epochs 300 \
+            --max_len 200  --min_len 2 \
+            --d_model 128 \
+            --sched_type noam --warmup_steps 400 \
+            --batch_size 2048 --num_accum 2 \
+            --eval_beam_size 4 \
+            --eval_batch_size 32 \
+            --save_path ./github_ignore_material/saves/ \
+            --language uz-en_4000 --num_gpus 1 \
+            --ddp_sync_port 12139 &> NORMAL_output.txt &
+
+Starting: __main__
+seed: 1234
+./bpe_data/qed_uz_en/4000_train.uz read 3689 sentences
+./bpe_data/qed_uz_en/4000_train.en read 3689 sentences
+Dictionary generated. Shared_word2idx_dict len: 4356
+Word examples: [<PAD>, <SOS>, <EOS>]
+Creating datasets...
+./bpe_data/qed_uz_en/4000_val.uz read 99 sentences
+./bpe_data/qed_uz_en/4000_val.en read 99 sentences
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : ['men', 'bu', 'yerda', "bo'ldim", '.']
+Trg : ['i', 'was', 'here', '.']
+1) --------------------------------------------
+Src : ['j@@', 'o@@', 'e', 'k@@', 'ra@@', 'us', 'aytadi', ',']
+Trg : ['j@@', 'o@@', 'e', 'k@@', 'ra@@', 'us', 'says', ',']
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : tensor([   1,  153,  147, 1306, 1798,   21,    2])
+Trg : tensor([   1,  324, 3068, 3155,   21,    2])
+1) --------------------------------------------
+Src : tensor([   1,  325,  214,  483,  139,  941, 1788, 2012,   10,    2])
+Trg : tensor([   1,  325,  214,  483,  139,  941, 1788, 3377,   10,    2])
+Len: 96
+./bpe_data/qed_uz_en/4000_test.uz read 199 sentences
+./bpe_data/qed_uz_en/4000_test.en read 199 sentences
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : ['chunki', 'dunyo', 'muammo@@', 'lari', 'inson@@', 'larning', 'o@@', 'ila@@', 'viy', 'mer@@', 'o@@', 'si', "bo'lishi", 'kerak', 'emas', '.']
+Trg : ['because', 'the', 'world', "'s", 'problems', 'sh@@', 'ouldn', "'t", 'be', 'the', 'human', 'family', "'s", 'he@@', 'ir@@', 'lo@@', 'om', '.']
+1) --------------------------------------------
+Src : ['(', 'qarsaklar', ')']
+Trg : ['(', 'applause', ')']
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : tensor([   1,  346, 1482, 2090,  299,  691,  787,  214, 2401, 1438, 2680,  214,
+         753, 1292,  162,  226,   21,    2])
+Trg : ['because', 'the', 'world', "'s", 'problems', 'sh@@', 'ouldn', "'t", 'be', 'the', 'human', 'family', "'s", 'he@@', 'ir@@', 'lo@@', 'om', '.']
+1) --------------------------------------------
+Src : tensor([  1, 105,   3, 107,   2])
+Trg : ['(', 'applause', ')']
+Len: 193
+./bpe_data/qed_uz_en/4000_train.uz read 3689 sentences
+./bpe_data/qed_uz_en/4000_train.en read 3689 sentences
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : ['ka', ':']
+Trg : ['ca', ':']
+1) --------------------------------------------
+Src : ['bizning', "ta'lim", 'soha@@', 'miz', ',', 'a@@', 'ka@@', 'demic', 'qobiliyat@@', 'ni', 'ba@@', 'sh@@', 'or@@', 'at', 'qiladi', '.']
+Trg : ['g@@', 'ro@@', 'wn', 'men', 'and', 'women', 'wri@@', 'thing', 'un@@', 'contro@@', 'l@@', 'lab@@', 'ly', ',', 'off', 'the', 'be@@', 'at', '.', '(', 'laughter', ')', 'wa@@', 'iting', 'until', 'it', 'ends', 'so', 'they', 'can', 'go', 'home', 'and', 'write', 'a', 'pa@@', 'per', 'about', 'it', '.', '(', 'laughter', ')']
+------------------- Train Set before preproc -------------------------
+0) --------------------------------------------
+Src : [1, 235, 5, 2]
+Trg : [1, 617, 5, 2]
+1) --------------------------------------------
+Src : [1, 844, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2]
+Trg : [1, 520, 734, 2821, 153, 243, 2945, 2946, 2947, 616, 2948, 699, 1088, 2682, 10, 2949, 2950, 1822, 19, 21, 105, 3916, 107, 3131, 2952, 2953, 2092, 2954, 1116, 2917, 2853, 2652, 2955, 243, 2956, 136, 65, 2363, 2957, 2092, 21, 105, 3916, 107, 2]
+Len: 3539
+Launching train method...
+Using -  1  processes / GPUs!
+Requested num GPUs: 1
+GPU: 0] Process 0 working...
+Model max_seq_len: 220
+
+Loading: no checkpoint found in ./github_ignore_material/saves/
+How many batches: 44
+Epoch: 0 Train loss: 6.9843 acc: 0.0206 | lr: 0.0002 | Elapsed: 0.0415 min
+Epoch: 1 Train loss: 5.663 acc: 0.0456 | lr: 0.0005 | Elapsed: 0.0779 min
+Epoch: 2 Train loss: 5.4581 acc: 0.0548 | lr: 0.0007 | Elapsed: 0.1145 min
+Epoch: 3 Train loss: 5.401 acc: 0.0584 | lr: 0.001 | Elapsed: 0.1511 min
+Epoch: 4 Train loss: 5.3796 acc: 0.0609 | lr: 0.0012 | Elapsed: 0.1875 min
+Epoch: 5 Train loss: 5.3341 acc: 0.0686 | lr: 0.0015 | Elapsed: 0.224 min
+Epoch: 6 Train loss: 5.2762 acc: 0.0849 | lr: 0.0017 | Elapsed: 0.2604 min
+Epoch: 7 Train loss: 5.1924 acc: 0.0947 | lr: 0.0019 | Elapsed: 0.2969 min
+Epoch: 8 Train loss: 5.0868 acc: 0.1006 | lr: 0.0022 | Elapsed: 0.3334 min
+Epoch: 9 Train loss: 5.0073 acc: 0.1057 | Val loss: 5.0214 acc: 0.1334 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 0.16 2.6/0.3/0.1/0.0 (BP = 1.000 ratio = 4.849 hyp_len = 18518 ref_len = 3819)
+Test Bleu: 0.16 | lr: 0.0024 | Elapsed: 0.624 min
+Epoch: 10 Train loss: 4.8878 acc: 0.1128 | lr: 0.0027 | Elapsed: 0.6574 min
+Epoch: 11 Train loss: 4.7924 acc: 0.1183 | lr: 0.0029 | Elapsed: 0.6939 min
+Epoch: 12 Train loss: 4.6723 acc: 0.1257 | lr: 0.0032 | Elapsed: 0.7306 min
+Epoch: 13 Train loss: 4.5946 acc: 0.1336 | lr: 0.0034 | Elapsed: 0.7672 min
+Epoch: 14 Train loss: 4.5074 acc: 0.1406 | lr: 0.0036 | Elapsed: 0.8037 min
+Epoch: 15 Train loss: 4.412 acc: 0.1484 | lr: 0.0039 | Elapsed: 0.8403 min
+Epoch: 16 Train loss: 4.3356 acc: 0.1591 | lr: 0.0041 | Elapsed: 0.8769 min
+Epoch: 17 Train loss: 4.2985 acc: 0.1639 | lr: 0.0044 | Elapsed: 0.9135 min
+Epoch: 18 Train loss: 4.2031 acc: 0.1688 | lr: 0.0043 | Elapsed: 0.9507 min
+Epoch: 19 Train loss: 4.0894 acc: 0.1803 | Val loss: 4.3605 acc: 0.2157 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+/home/jchu/Progetti/lowres_workspace/test_withBPE.py:76: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  batch_src = torch.tensor(batch_src).to(model.rank)
+SacreBLEU: BLEU = 0.41 10.1/1.1/0.2/0.0 (BP = 1.000 ratio = 1.930 hyp_len = 7369 ref_len = 3819)
+Test Bleu: 0.41 | lr: 0.0042 | Elapsed: 1.2448 min
+Epoch: 20 Train loss: 3.9835 acc: 0.1909 | lr: 0.0041 | Elapsed: 1.2784 min
+Epoch: 21 Train loss: 3.8611 acc: 0.2058 | lr: 0.004 | Elapsed: 1.315 min
+Epoch: 22 Train loss: 3.7625 acc: 0.2191 | lr: 0.0039 | Elapsed: 1.3519 min
+Epoch: 23 Train loss: 3.6792 acc: 0.2283 | lr: 0.0038 | Elapsed: 1.3887 min
+Epoch: 24 Train loss: 3.6024 acc: 0.2347 | lr: 0.0038 | Elapsed: 1.4255 min
+Epoch: 25 Train loss: 3.5345 acc: 0.2434 | lr: 0.0037 | Elapsed: 1.4622 min
+Epoch: 26 Train loss: 3.4496 acc: 0.2581 | lr: 0.0036 | Elapsed: 1.499 min
+Epoch: 27 Train loss: 3.3766 acc: 0.2657 | lr: 0.0036 | Elapsed: 1.5358 min
+Epoch: 28 Train loss: 3.3101 acc: 0.2717 | lr: 0.0035 | Elapsed: 1.5728 min
+Epoch: 29 Train loss: 3.2588 acc: 0.2786 | Val loss: 3.9581 acc: 0.2943 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 0.89 15.2/2.0/0.5/0.0 (BP = 1.000 ratio = 1.326 hyp_len = 5065 ref_len = 3819)
+Test Bleu: 0.89 | lr: 0.0034 | Elapsed: 1.8706 min
+Epoch: 30 Train loss: 3.2055 acc: 0.2872 | lr: 0.0034 | Elapsed: 1.9044 min
+Epoch: 31 Train loss: 3.1467 acc: 0.2939 | lr: 0.0033 | Elapsed: 1.9415 min
+Epoch: 32 Train loss: 3.0844 acc: 0.3037 | lr: 0.0033 | Elapsed: 1.9784 min
+Epoch: 33 Train loss: 3.0451 acc: 0.311 | lr: 0.0032 | Elapsed: 2.0153 min
+Epoch: 34 Train loss: 2.9839 acc: 0.3182 | lr: 0.0032 | Elapsed: 2.0523 min
+Epoch: 35 Train loss: 2.9437 acc: 0.3253 | lr: 0.0031 | Elapsed: 2.0894 min
+Epoch: 36 Train loss: 2.896 acc: 0.3306 | lr: 0.0031 | Elapsed: 2.1263 min
+Epoch: 37 Train loss: 2.8734 acc: 0.3361 | lr: 0.0031 | Elapsed: 2.1634 min
+Epoch: 38 Train loss: 2.834 acc: 0.3405 | lr: 0.003 | Elapsed: 2.2004 min
+Epoch: 39 Train loss: 2.7866 acc: 0.3494 | Val loss: 3.8765 acc: 0.3163 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 1.81 20.0/3.5/1.0/0.3 (BP = 0.872 ratio = 0.880 hyp_len = 3359 ref_len = 3819)
+Test Bleu: 1.81 | lr: 0.003 | Elapsed: 2.4294 min
+Epoch: 40 Train loss: 2.7476 acc: 0.354 | lr: 0.0029 | Elapsed: 2.4679 min
+Epoch: 41 Train loss: 2.7326 acc: 0.3567 | lr: 0.0029 | Elapsed: 2.5047 min
+Epoch: 42 Train loss: 2.6883 acc: 0.3643 | lr: 0.0029 | Elapsed: 2.5417 min
+Epoch: 43 Train loss: 2.6499 acc: 0.3722 | lr: 0.0028 | Elapsed: 2.5786 min
+Epoch: 44 Train loss: 2.6172 acc: 0.3771 | lr: 0.0028 | Elapsed: 2.6157 min
+Epoch: 45 Train loss: 2.5961 acc: 0.38 | lr: 0.0028 | Elapsed: 2.6527 min
+Epoch: 46 Train loss: 2.5707 acc: 0.3844 | lr: 0.0027 | Elapsed: 2.6898 min
+Epoch: 47 Train loss: 2.5273 acc: 0.3941 | lr: 0.0027 | Elapsed: 2.7267 min
+Epoch: 48 Train loss: 2.5062 acc: 0.3967 | lr: 0.0027 | Elapsed: 2.7636 min
+Epoch: 49 Train loss: 2.4738 acc: 0.4028 | Val loss: 3.7924 acc: 0.3491 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 2.39 22.6/4.1/1.0/0.4 (BP = 1.000 ratio = 1.037 hyp_len = 3960 ref_len = 3819)
+Test Bleu: 2.39 | lr: 0.0027 | Elapsed: 2.9872 min
+Epoch: 50 Train loss: 2.448 acc: 0.4061 | lr: 0.0026 | Elapsed: 3.0257 min
+Epoch: 51 Train loss: 2.4322 acc: 0.4111 | lr: 0.0026 | Elapsed: 3.0629 min
+Epoch: 52 Train loss: 2.3993 acc: 0.4151 | lr: 0.0026 | Elapsed: 3.0996 min
+Epoch: 53 Train loss: 2.3837 acc: 0.4184 | lr: 0.0026 | Elapsed: 3.1367 min
+Epoch: 54 Train loss: 2.3498 acc: 0.4266 | lr: 0.0025 | Elapsed: 3.1738 min
+Epoch: 55 Train loss: 2.3288 acc: 0.4288 | lr: 0.0025 | Elapsed: 3.2108 min
+Epoch: 56 Train loss: 2.3157 acc: 0.4313 | lr: 0.0025 | Elapsed: 3.248 min
+Epoch: 57 Train loss: 2.2932 acc: 0.4364 | lr: 0.0025 | Elapsed: 3.285 min
+Epoch: 58 Train loss: 2.27 acc: 0.4399 | lr: 0.0025 | Elapsed: 3.322 min
+Epoch: 59 Train loss: 2.2488 acc: 0.4455 | Val loss: 3.8413 acc: 0.3549 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 3.63 24.2/5.0/2.1/1.0 (BP = 0.898 ratio = 0.903 hyp_len = 3447 ref_len = 3819)
+Test Bleu: 3.63 | lr: 0.0024 | Elapsed: 3.4574 min
+Epoch: 60 Train loss: 2.2226 acc: 0.4499 | lr: 0.0024 | Elapsed: 3.4954 min
+Epoch: 61 Train loss: 2.2088 acc: 0.4526 | lr: 0.0024 | Elapsed: 3.5326 min
+Epoch: 62 Train loss: 2.1789 acc: 0.4599 | lr: 0.0024 | Elapsed: 3.5697 min
+Epoch: 63 Train loss: 2.1625 acc: 0.4638 | lr: 0.0024 | Elapsed: 3.6072 min
+Epoch: 64 Train loss: 2.1368 acc: 0.4678 | lr: 0.0023 | Elapsed: 3.6443 min
+Epoch: 65 Train loss: 2.1164 acc: 0.4731 | lr: 0.0023 | Elapsed: 3.6813 min
+Epoch: 66 Train loss: 2.1046 acc: 0.4745 | lr: 0.0023 | Elapsed: 3.7183 min
+Epoch: 67 Train loss: 2.0878 acc: 0.4799 | lr: 0.0023 | Elapsed: 3.7555 min
+Epoch: 68 Train loss: 2.0714 acc: 0.4821 | lr: 0.0023 | Elapsed: 3.7925 min
+Epoch: 69 Train loss: 2.0479 acc: 0.4878 | Val loss: 3.8643 acc: 0.3689 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 3.56 26.5/5.6/2.1/1.0 (BP = 0.843 ratio = 0.854 hyp_len = 3261 ref_len = 3819)
+Test Bleu: 3.56 | lr: 0.0023 | Elapsed: 3.9261 min
+Epoch: 70 Train loss: 2.0389 acc: 0.4892 | lr: 0.0022 | Elapsed: 3.9641 min
+Epoch: 71 Train loss: 2.0208 acc: 0.4939 | lr: 0.0022 | Elapsed: 4.0013 min
+Epoch: 72 Train loss: 2.0071 acc: 0.4948 | lr: 0.0022 | Elapsed: 4.0384 min
+Epoch: 73 Train loss: 1.9926 acc: 0.4973 | lr: 0.0022 | Elapsed: 4.0755 min
+Epoch: 74 Train loss: 1.9716 acc: 0.5039 | lr: 0.0022 | Elapsed: 4.1124 min
+Epoch: 75 Train loss: 1.9565 acc: 0.5065 | lr: 0.0022 | Elapsed: 4.1491 min
+Epoch: 76 Train loss: 1.9517 acc: 0.5055 | lr: 0.0021 | Elapsed: 4.1858 min
+Epoch: 77 Train loss: 1.9284 acc: 0.5125 | lr: 0.0021 | Elapsed: 4.2226 min
+Epoch: 78 Train loss: 1.9218 acc: 0.5136 | lr: 0.0021 | Elapsed: 4.2595 min
+Epoch: 79 Train loss: 1.8967 acc: 0.5202 | Val loss: 3.8799 acc: 0.3829 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 4.59 27.2/6.5/3.3/1.9 (BP = 0.793 ratio = 0.812 hyp_len = 3100 ref_len = 3819)
+Test Bleu: 4.59 | lr: 0.0021 | Elapsed: 4.3808 min
+Epoch: 80 Train loss: 1.8894 acc: 0.5185 | lr: 0.0021 | Elapsed: 4.4191 min
+Epoch: 81 Train loss: 1.8786 acc: 0.5231 | lr: 0.0021 | Elapsed: 4.4557 min
+Epoch: 82 Train loss: 1.8672 acc: 0.524 | lr: 0.0021 | Elapsed: 4.4928 min
+Epoch: 83 Train loss: 1.8512 acc: 0.5311 | lr: 0.0021 | Elapsed: 4.5298 min
+Epoch: 84 Train loss: 1.841 acc: 0.5329 | lr: 0.002 | Elapsed: 4.5666 min
+Epoch: 85 Train loss: 1.8314 acc: 0.5345 | lr: 0.002 | Elapsed: 4.6037 min
+Epoch: 86 Train loss: 1.8178 acc: 0.5364 | lr: 0.002 | Elapsed: 4.6408 min
+Epoch: 87 Train loss: 1.7969 acc: 0.5416 | lr: 0.002 | Elapsed: 4.6776 min
+Epoch: 88 Train loss: 1.7919 acc: 0.5421 | lr: 0.002 | Elapsed: 4.7132 min
+Epoch: 89 Train loss: 1.7751 acc: 0.5463 | Val loss: 3.989 acc: 0.3762 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 5.21 28.5/7.6/3.5/2.1 (BP = 0.831 ratio = 0.844 hyp_len = 3224 ref_len = 3819)
+Test Bleu: 5.21 | lr: 0.002 | Elapsed: 4.8309 min
+Epoch: 90 Train loss: 1.7586 acc: 0.5499 | lr: 0.002 | Elapsed: 4.8683 min
+Epoch: 91 Train loss: 1.7495 acc: 0.5529 | lr: 0.002 | Elapsed: 4.9045 min
+Epoch: 92 Train loss: 1.7399 acc: 0.5561 | lr: 0.002 | Elapsed: 4.9414 min
+Epoch: 93 Train loss: 1.7271 acc: 0.5596 | lr: 0.0019 | Elapsed: 4.9784 min
+Epoch: 94 Train loss: 1.7144 acc: 0.5618 | lr: 0.0019 | Elapsed: 5.0151 min
+Epoch: 95 Train loss: 1.7097 acc: 0.5628 | lr: 0.0019 | Elapsed: 5.0519 min
+Epoch: 96 Train loss: 1.7029 acc: 0.5642 | lr: 0.0019 | Elapsed: 5.0886 min
+Epoch: 97 Train loss: 1.692 acc: 0.5663 | lr: 0.0019 | Elapsed: 5.1256 min
+Epoch: 98 Train loss: 1.6731 acc: 0.5704 | lr: 0.0019 | Elapsed: 5.1626 min
+Epoch: 99 Train loss: 1.6712 acc: 0.5705 | Val loss: 3.9659 acc: 0.3923 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 5.45 29.7/8.3/4.1/2.6 (BP = 0.761 ratio = 0.786 hyp_len = 3000 ref_len = 3819)
+Test Bleu: 5.45 | lr: 0.0019 | Elapsed: 5.28 min
+Epoch: 100 Train loss: 1.6595 acc: 0.574 | lr: 0.0019 | Elapsed: 5.3174 min
+Epoch: 101 Train loss: 1.655 acc: 0.575 | lr: 0.0019 | Elapsed: 5.3543 min
+Epoch: 102 Train loss: 1.643 acc: 0.5767 | lr: 0.0019 | Elapsed: 5.3914 min
+Epoch: 103 Train loss: 1.6293 acc: 0.581 | lr: 0.0018 | Elapsed: 5.4285 min
+Epoch: 104 Train loss: 1.6245 acc: 0.5817 | lr: 0.0018 | Elapsed: 5.4654 min
+Epoch: 105 Train loss: 1.6104 acc: 0.586 | lr: 0.0018 | Elapsed: 5.5024 min
+Epoch: 106 Train loss: 1.5954 acc: 0.5903 | lr: 0.0018 | Elapsed: 5.5395 min
+Epoch: 107 Train loss: 1.5906 acc: 0.5897 | lr: 0.0018 | Elapsed: 5.5764 min
+Epoch: 108 Train loss: 1.5817 acc: 0.5939 | lr: 0.0018 | Elapsed: 5.6133 min
+Epoch: 109 Train loss: 1.5743 acc: 0.5949 | Val loss: 3.9578 acc: 0.4048 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 7.22 31.3/10.1/6.1/4.4 (BP = 0.749 ratio = 0.776 hyp_len = 2962 ref_len = 3819)
+Test Bleu: 7.22 | lr: 0.0018 | Elapsed: 5.7348 min
+Epoch: 110 Train loss: 1.5681 acc: 0.5961 | lr: 0.0018 | Elapsed: 5.7729 min
+Epoch: 111 Train loss: 1.5655 acc: 0.5958 | lr: 0.0018 | Elapsed: 5.81 min
+Epoch: 112 Train loss: 1.5551 acc: 0.5991 | lr: 0.0018 | Elapsed: 5.847 min
+Epoch: 113 Train loss: 1.5435 acc: 0.6011 | lr: 0.0018 | Elapsed: 5.8838 min
+Epoch: 114 Train loss: 1.5388 acc: 0.6036 | lr: 0.0018 | Elapsed: 5.9206 min
+Epoch: 115 Train loss: 1.5331 acc: 0.6037 | lr: 0.0017 | Elapsed: 5.9576 min
+Epoch: 116 Train loss: 1.5184 acc: 0.6091 | lr: 0.0017 | Elapsed: 5.9945 min
+Epoch: 117 Train loss: 1.5211 acc: 0.6064 | lr: 0.0017 | Elapsed: 6.0315 min
+Epoch: 118 Train loss: 1.5052 acc: 0.6119 | lr: 0.0017 | Elapsed: 6.0684 min
+Epoch: 119 Train loss: 1.5049 acc: 0.6096 | Val loss: 3.9785 acc: 0.4169 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 8.81 32.5/11.5/7.4/5.7 (BP = 0.786 ratio = 0.806 hyp_len = 3078 ref_len = 3819)
+Test Bleu: 8.81 | lr: 0.0017 | Elapsed: 6.1861 min
+Epoch: 120 Train loss: 1.4923 acc: 0.6156 | lr: 0.0017 | Elapsed: 6.2251 min
+Epoch: 121 Train loss: 1.4783 acc: 0.6203 | lr: 0.0017 | Elapsed: 6.2621 min
+Epoch: 122 Train loss: 1.4713 acc: 0.6218 | lr: 0.0017 | Elapsed: 6.299 min
+Epoch: 123 Train loss: 1.4699 acc: 0.6227 | lr: 0.0017 | Elapsed: 6.336 min
+Epoch: 124 Train loss: 1.4629 acc: 0.6228 | lr: 0.0017 | Elapsed: 6.373 min
+Epoch: 125 Train loss: 1.4514 acc: 0.6261 | lr: 0.0017 | Elapsed: 6.4101 min
+Epoch: 126 Train loss: 1.4489 acc: 0.6265 | lr: 0.0017 | Elapsed: 6.4471 min
+Epoch: 127 Train loss: 1.4407 acc: 0.6288 | lr: 0.0017 | Elapsed: 6.484 min
+Epoch: 128 Train loss: 1.431 acc: 0.6314 | lr: 0.0017 | Elapsed: 6.5211 min
+Epoch: 129 Train loss: 1.4244 acc: 0.632 | Val loss: 4.0108 acc: 0.4232 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 11.52 32.9/13.1/9.4/8.0 (BP = 0.858 ratio = 0.867 hyp_len = 3311 ref_len = 3819)
+Test Bleu: 11.52 | lr: 0.0017 | Elapsed: 6.6514 min
+Epoch: 130 Train loss: 1.4211 acc: 0.6345 | lr: 0.0016 | Elapsed: 6.6868 min
+Epoch: 131 Train loss: 1.4176 acc: 0.634 | lr: 0.0016 | Elapsed: 6.7238 min
+Epoch: 132 Train loss: 1.4097 acc: 0.6352 | lr: 0.0016 | Elapsed: 6.7609 min
+Epoch: 133 Train loss: 1.4075 acc: 0.6353 | lr: 0.0016 | Elapsed: 6.798 min
+Epoch: 134 Train loss: 1.3903 acc: 0.6409 | lr: 0.0016 | Elapsed: 6.8354 min
+Epoch: 135 Train loss: 1.3971 acc: 0.6405 | lr: 0.0016 | Elapsed: 6.8725 min
+Epoch: 136 Train loss: 1.3921 acc: 0.6418 | lr: 0.0016 | Elapsed: 6.9096 min
+Epoch: 137 Train loss: 1.3853 acc: 0.6425 | lr: 0.0016 | Elapsed: 6.9465 min
+Epoch: 138 Train loss: 1.379 acc: 0.6438 | lr: 0.0016 | Elapsed: 6.9835 min
+Epoch: 139 Train loss: 1.3747 acc: 0.647 | Val loss: 4.0439 acc: 0.408 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 11.56 32.7/12.7/9.5/8.1 (BP = 0.865 ratio = 0.874 hyp_len = 3336 ref_len = 3819)
+Test Bleu: 11.56 | lr: 0.0016 | Elapsed: 7.104 min
+Epoch: 140 Train loss: 1.3714 acc: 0.646 | lr: 0.0016 | Elapsed: 7.1422 min
+Epoch: 141 Train loss: 1.3632 acc: 0.6475 | lr: 0.0016 | Elapsed: 7.1793 min
+Epoch: 142 Train loss: 1.3533 acc: 0.651 | lr: 0.0016 | Elapsed: 7.2167 min
+Epoch: 143 Train loss: 1.3468 acc: 0.6521 | lr: 0.0016 | Elapsed: 7.2538 min
+Epoch: 144 Train loss: 1.3424 acc: 0.6559 | lr: 0.0016 | Elapsed: 7.2909 min
+Epoch: 145 Train loss: 1.3361 acc: 0.6551 | lr: 0.0016 | Elapsed: 7.3279 min
+Epoch: 146 Train loss: 1.3269 acc: 0.659 | lr: 0.0016 | Elapsed: 7.3648 min
+Epoch: 147 Train loss: 1.325 acc: 0.6595 | lr: 0.0015 | Elapsed: 7.4018 min
+Epoch: 148 Train loss: 1.3233 acc: 0.6582 | lr: 0.0015 | Elapsed: 7.439 min
+Epoch: 149 Train loss: 1.3158 acc: 0.6618 | Val loss: 4.0222 acc: 0.4199 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 11.52 31.7/12.4/9.1/7.5 (BP = 0.902 ratio = 0.907 hyp_len = 3462 ref_len = 3819)
+Test Bleu: 11.52 | lr: 0.0015 | Elapsed: 7.5672 min
+Epoch: 150 Train loss: 1.3117 acc: 0.6621 | lr: 0.0015 | Elapsed: 7.6058 min
+Epoch: 151 Train loss: 1.3106 acc: 0.6627 | lr: 0.0015 | Elapsed: 7.6426 min
+Epoch: 152 Train loss: 1.306 acc: 0.6645 | lr: 0.0015 | Elapsed: 7.6798 min
+Epoch: 153 Train loss: 1.3032 acc: 0.6657 | lr: 0.0015 | Elapsed: 7.7166 min
+Epoch: 154 Train loss: 1.2994 acc: 0.6646 | lr: 0.0015 | Elapsed: 7.7538 min
+Epoch: 155 Train loss: 1.3024 acc: 0.6662 | lr: 0.0015 | Elapsed: 7.7909 min
+Epoch: 156 Train loss: 1.2954 acc: 0.6645 | lr: 0.0015 | Elapsed: 7.828 min
+Epoch: 157 Train loss: 1.2852 acc: 0.67 | lr: 0.0015 | Elapsed: 7.8651 min
+Epoch: 158 Train loss: 1.2836 acc: 0.6719 | lr: 0.0015 | Elapsed: 7.9022 min
+Epoch: 159 Train loss: 1.2764 acc: 0.6728 | Val loss: 4.0938 acc: 0.4132 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 12.65 32.6/13.1/9.7/8.1 (BP = 0.933 ratio = 0.935 hyp_len = 3571 ref_len = 3819)
+Test Bleu: 12.65 | lr: 0.0015 | Elapsed: 8.0461 min
+Epoch: 160 Train loss: 1.2699 acc: 0.6745 | lr: 0.0015 | Elapsed: 8.0836 min
+Epoch: 161 Train loss: 1.2693 acc: 0.675 | lr: 0.0015 | Elapsed: 8.1206 min
+Epoch: 162 Train loss: 1.2673 acc: 0.6747 | lr: 0.0015 | Elapsed: 8.1575 min
+Epoch: 163 Train loss: 1.2576 acc: 0.6784 | lr: 0.0015 | Elapsed: 8.1945 min
+Epoch: 164 Train loss: 1.2514 acc: 0.6795 | lr: 0.0015 | Elapsed: 8.2315 min
+Epoch: 165 Train loss: 1.2492 acc: 0.6802 | lr: 0.0015 | Elapsed: 8.2685 min
+Epoch: 166 Train loss: 1.241 acc: 0.682 | lr: 0.0015 | Elapsed: 8.3057 min
+Epoch: 167 Train loss: 1.2389 acc: 0.6803 | lr: 0.0015 | Elapsed: 8.3437 min
+Epoch: 168 Train loss: 1.2426 acc: 0.6817 | lr: 0.0014 | Elapsed: 8.3808 min
+Epoch: 169 Train loss: 1.2334 acc: 0.6835 | Val loss: 4.1138 acc: 0.4173 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 13.64 32.6/14.5/11.5/10.3 (BP = 0.886 ratio = 0.892 hyp_len = 3405 ref_len = 3819)
+Test Bleu: 13.64 | lr: 0.0014 | Elapsed: 8.5162 min
+Epoch: 170 Train loss: 1.2275 acc: 0.6875 | lr: 0.0014 | Elapsed: 8.554 min
+Epoch: 171 Train loss: 1.2259 acc: 0.6847 | lr: 0.0014 | Elapsed: 8.5912 min
+Epoch: 172 Train loss: 1.2216 acc: 0.688 | lr: 0.0014 | Elapsed: 8.6282 min
+Epoch: 173 Train loss: 1.2193 acc: 0.6881 | lr: 0.0014 | Elapsed: 8.6654 min
+Epoch: 174 Train loss: 1.2068 acc: 0.6912 | lr: 0.0014 | Elapsed: 8.7026 min
+Epoch: 175 Train loss: 1.2112 acc: 0.6923 | lr: 0.0014 | Elapsed: 8.7398 min
+Epoch: 176 Train loss: 1.2104 acc: 0.6897 | lr: 0.0014 | Elapsed: 8.777 min
+Epoch: 177 Train loss: 1.1978 acc: 0.6943 | lr: 0.0014 | Elapsed: 8.8145 min
+Epoch: 178 Train loss: 1.1949 acc: 0.6954 | lr: 0.0014 | Elapsed: 8.8515 min
+Epoch: 179 Train loss: 1.1918 acc: 0.6973 | Val loss: 4.1425 acc: 0.4184 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 15.13 34.3/16.0/12.7/11.4 (BP = 0.902 ratio = 0.906 hyp_len = 3461 ref_len = 3819)
+Test Bleu: 15.13 | lr: 0.0014 | Elapsed: 8.9641 min
+Epoch: 180 Train loss: 1.1924 acc: 0.6941 | lr: 0.0014 | Elapsed: 9.0032 min
+Epoch: 181 Train loss: 1.1863 acc: 0.6967 | lr: 0.0014 | Elapsed: 9.0404 min
+Epoch: 182 Train loss: 1.1781 acc: 0.7007 | lr: 0.0014 | Elapsed: 9.0773 min
+Epoch: 183 Train loss: 1.175 acc: 0.6984 | lr: 0.0014 | Elapsed: 9.1143 min
+Epoch: 184 Train loss: 1.1728 acc: 0.7013 | lr: 0.0014 | Elapsed: 9.1514 min
+Epoch: 185 Train loss: 1.175 acc: 0.7 | lr: 0.0014 | Elapsed: 9.1883 min
+Epoch: 186 Train loss: 1.1688 acc: 0.703 | lr: 0.0014 | Elapsed: 9.2254 min
+Epoch: 187 Train loss: 1.164 acc: 0.705 | lr: 0.0014 | Elapsed: 9.2624 min
+Epoch: 188 Train loss: 1.1597 acc: 0.7051 | lr: 0.0014 | Elapsed: 9.2998 min
+Epoch: 189 Train loss: 1.1575 acc: 0.7047 | Val loss: 4.1602 acc: 0.4219 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 15.99 36.5/17.3/14.5/13.4 (BP = 0.854 ratio = 0.864 hyp_len = 3299 ref_len = 3819)
+Test Bleu: 15.99 | lr: 0.0014 | Elapsed: 9.4444 min
+Epoch: 190 Train loss: 1.1501 acc: 0.7073 | lr: 0.0014 | Elapsed: 9.4818 min
+Epoch: 191 Train loss: 1.1478 acc: 0.7084 | lr: 0.0014 | Elapsed: 9.5191 min
+Epoch: 192 Train loss: 1.1504 acc: 0.7079 | lr: 0.0014 | Elapsed: 9.5562 min
+Epoch: 193 Train loss: 1.1433 acc: 0.7093 | lr: 0.0014 | Elapsed: 9.5934 min
+Epoch: 194 Train loss: 1.1453 acc: 0.7079 | lr: 0.0013 | Elapsed: 9.6306 min
+Epoch: 195 Train loss: 1.1415 acc: 0.7097 | lr: 0.0013 | Elapsed: 9.6677 min
+Epoch: 196 Train loss: 1.1362 acc: 0.7129 | lr: 0.0013 | Elapsed: 9.7048 min
+Epoch: 197 Train loss: 1.1362 acc: 0.7108 | lr: 0.0013 | Elapsed: 9.742 min
+Epoch: 198 Train loss: 1.1323 acc: 0.7118 | lr: 0.0013 | Elapsed: 9.7792 min
+Epoch: 199 Train loss: 1.1253 acc: 0.7141 | Val loss: 4.119 acc: 0.4294 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 16.92 35.7/17.2/14.2/13.2 (BP = 0.917 ratio = 0.921 hyp_len = 3516 ref_len = 3819)
+Test Bleu: 16.92 | lr: 0.0013 | Elapsed: 9.9135 min
+Epoch: 200 Train loss: 1.1245 acc: 0.715 | lr: 0.0013 | Elapsed: 9.9516 min
+Epoch: 201 Train loss: 1.1159 acc: 0.7188 | lr: 0.0013 | Elapsed: 9.9886 min
+Epoch: 202 Train loss: 1.1175 acc: 0.7167 | lr: 0.0013 | Elapsed: 10.0256 min
+Epoch: 203 Train loss: 1.113 acc: 0.7183 | lr: 0.0013 | Elapsed: 10.0629 min
+Epoch: 204 Train loss: 1.1172 acc: 0.7174 | lr: 0.0013 | Elapsed: 10.1 min
+Epoch: 205 Train loss: 1.1114 acc: 0.718 | lr: 0.0013 | Elapsed: 10.1371 min
+Epoch: 206 Train loss: 1.108 acc: 0.7204 | lr: 0.0013 | Elapsed: 10.1743 min
+Epoch: 207 Train loss: 1.1043 acc: 0.7207 | lr: 0.0013 | Elapsed: 10.2113 min
+Epoch: 208 Train loss: 1.098 acc: 0.7216 | lr: 0.0013 | Elapsed: 10.2482 min
+Epoch: 209 Train loss: 1.1009 acc: 0.7224 | Val loss: 4.1583 acc: 0.4193 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 17.47 35.9/17.8/15.3/14.4 (BP = 0.901 ratio = 0.906 hyp_len = 3459 ref_len = 3819)
+Test Bleu: 17.47 | lr: 0.0013 | Elapsed: 10.3814 min
+Epoch: 210 Train loss: 1.0975 acc: 0.7228 | lr: 0.0013 | Elapsed: 10.4194 min
+Epoch: 211 Train loss: 1.0917 acc: 0.7258 | lr: 0.0013 | Elapsed: 10.4567 min
+Epoch: 212 Train loss: 1.089 acc: 0.7251 | lr: 0.0013 | Elapsed: 10.494 min
+Epoch: 213 Train loss: 1.0912 acc: 0.7244 | lr: 0.0013 | Elapsed: 10.5314 min
+Epoch: 214 Train loss: 1.0891 acc: 0.7248 | lr: 0.0013 | Elapsed: 10.5687 min
+Epoch: 215 Train loss: 1.084 acc: 0.7275 | lr: 0.0013 | Elapsed: 10.6061 min
+Epoch: 216 Train loss: 1.0784 acc: 0.7314 | lr: 0.0013 | Elapsed: 10.6432 min
+Epoch: 217 Train loss: 1.0723 acc: 0.7307 | lr: 0.0013 | Elapsed: 10.6805 min
+Epoch: 218 Train loss: 1.0706 acc: 0.7304 | lr: 0.0013 | Elapsed: 10.7176 min
+Epoch: 219 Train loss: 1.0635 acc: 0.7351 | Val loss: 4.1564 acc: 0.4202 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 17.83 36.5/18.1/15.5/14.6 (BP = 0.906 ratio = 0.910 hyp_len = 3475 ref_len = 3819)
+Test Bleu: 17.83 | lr: 0.0013 | Elapsed: 10.8716 min
+Epoch: 220 Train loss: 1.0645 acc: 0.7335 | lr: 0.0013 | Elapsed: 10.9091 min
+Epoch: 221 Train loss: 1.0634 acc: 0.7328 | lr: 0.0013 | Elapsed: 10.9463 min
+Epoch: 222 Train loss: 1.0583 acc: 0.7355 | lr: 0.0013 | Elapsed: 10.9837 min
+Epoch: 223 Train loss: 1.0581 acc: 0.7342 | lr: 0.0013 | Elapsed: 11.0209 min
+Epoch: 224 Train loss: 1.0553 acc: 0.7365 | lr: 0.0013 | Elapsed: 11.0579 min
+Epoch: 225 Train loss: 1.0529 acc: 0.738 | lr: 0.0013 | Elapsed: 11.095 min
+Epoch: 226 Train loss: 1.0505 acc: 0.737 | lr: 0.0013 | Elapsed: 11.132 min
+Epoch: 227 Train loss: 1.0493 acc: 0.7382 | lr: 0.0012 | Elapsed: 11.1692 min
+Epoch: 228 Train loss: 1.0463 acc: 0.7393 | lr: 0.0012 | Elapsed: 11.2062 min
+Epoch: 229 Train loss: 1.0479 acc: 0.7378 | Val loss: 4.1873 acc: 0.4202 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 18.61 37.3/19.0/16.6/15.8 (BP = 0.897 ratio = 0.902 hyp_len = 3443 ref_len = 3819)
+Test Bleu: 18.61 | lr: 0.0012 | Elapsed: 11.3521 min
+Epoch: 230 Train loss: 1.046 acc: 0.7398 | lr: 0.0012 | Elapsed: 11.3897 min
+Epoch: 231 Train loss: 1.0405 acc: 0.741 | lr: 0.0012 | Elapsed: 11.4268 min
+Epoch: 232 Train loss: 1.0349 acc: 0.7427 | lr: 0.0012 | Elapsed: 11.4639 min
+Epoch: 233 Train loss: 1.0306 acc: 0.7433 | lr: 0.0012 | Elapsed: 11.5011 min
+Epoch: 234 Train loss: 1.0299 acc: 0.7446 | lr: 0.0012 | Elapsed: 11.5385 min
+Epoch: 235 Train loss: 1.0248 acc: 0.7455 | lr: 0.0012 | Elapsed: 11.5757 min
+Epoch: 236 Train loss: 1.0283 acc: 0.7452 | lr: 0.0012 | Elapsed: 11.6129 min
+Epoch: 237 Train loss: 1.0196 acc: 0.7472 | lr: 0.0012 | Elapsed: 11.65 min
+Epoch: 238 Train loss: 1.023 acc: 0.7456 | lr: 0.0012 | Elapsed: 11.6871 min
+Epoch: 239 Train loss: 1.0112 acc: 0.7503 | Val loss: 4.2074 acc: 0.4268 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 18.80 38.6/19.7/16.8/16.0 (BP = 0.884 ratio = 0.890 hyp_len = 3399 ref_len = 3819)
+Test Bleu: 18.80 | lr: 0.0012 | Elapsed: 11.8488 min
+Epoch: 240 Train loss: 1.0181 acc: 0.7473 | lr: 0.0012 | Elapsed: 11.8864 min
+Epoch: 241 Train loss: 1.0136 acc: 0.7508 | lr: 0.0012 | Elapsed: 11.9234 min
+Epoch: 242 Train loss: 1.0208 acc: 0.7466 | lr: 0.0012 | Elapsed: 11.9603 min
+Epoch: 243 Train loss: 1.0135 acc: 0.7487 | lr: 0.0012 | Elapsed: 11.9973 min
+Epoch: 244 Train loss: 1.0109 acc: 0.7502 | lr: 0.0012 | Elapsed: 12.0343 min
+Epoch: 245 Train loss: 1.0026 acc: 0.7528 | lr: 0.0012 | Elapsed: 12.0713 min
+Epoch: 246 Train loss: 1.007 acc: 0.7518 | lr: 0.0012 | Elapsed: 12.1085 min
+Epoch: 247 Train loss: 1.0015 acc: 0.7524 | lr: 0.0012 | Elapsed: 12.1457 min
+Epoch: 248 Train loss: 0.9996 acc: 0.7538 | lr: 0.0012 | Elapsed: 12.1831 min
+Epoch: 249 Train loss: 1.0019 acc: 0.7509 | Val loss: 4.2628 acc: 0.4188 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 18.37 36.8/18.3/16.2/15.5 (BP = 0.905 ratio = 0.909 hyp_len = 3471 ref_len = 3819)
+Test Bleu: 18.37 | lr: 0.0012 | Elapsed: 12.3378 min
+Epoch: 250 Train loss: 0.9923 acc: 0.7551 | lr: 0.0012 | Elapsed: 12.3751 min
+Epoch: 251 Train loss: 0.9936 acc: 0.7561 | lr: 0.0012 | Elapsed: 12.4121 min
+Epoch: 252 Train loss: 0.9887 acc: 0.7576 | lr: 0.0012 | Elapsed: 12.449 min
+Epoch: 253 Train loss: 0.9884 acc: 0.7567 | lr: 0.0012 | Elapsed: 12.4859 min
+Epoch: 254 Train loss: 0.9878 acc: 0.7558 | lr: 0.0012 | Elapsed: 12.5229 min
+Epoch: 255 Train loss: 0.9891 acc: 0.7563 | lr: 0.0012 | Elapsed: 12.5598 min
+Epoch: 256 Train loss: 0.9806 acc: 0.7601 | lr: 0.0012 | Elapsed: 12.5966 min
+Epoch: 257 Train loss: 0.9814 acc: 0.7586 | lr: 0.0012 | Elapsed: 12.6338 min
+Epoch: 258 Train loss: 0.9802 acc: 0.7604 | lr: 0.0012 | Elapsed: 12.6709 min
+Epoch: 259 Train loss: 0.9753 acc: 0.7619 | Val loss: 4.2404 acc: 0.4174 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 19.69 36.7/18.6/16.0/15.2 (BP = 0.975 ratio = 0.975 hyp_len = 3723 ref_len = 3819)
+Test Bleu: 19.69 | lr: 0.0012 | Elapsed: 12.8225 min
+Epoch: 260 Train loss: 0.9713 acc: 0.7608 | lr: 0.0012 | Elapsed: 12.8599 min
+Epoch: 261 Train loss: 0.9732 acc: 0.7639 | lr: 0.0012 | Elapsed: 12.8969 min
+Epoch: 262 Train loss: 0.9749 acc: 0.7614 | lr: 0.0012 | Elapsed: 12.934 min
+Epoch: 263 Train loss: 0.9714 acc: 0.7619 | lr: 0.0012 | Elapsed: 12.9708 min
+Epoch: 264 Train loss: 0.9714 acc: 0.7617 | lr: 0.0012 | Elapsed: 13.0078 min
+Epoch: 265 Train loss: 0.9664 acc: 0.764 | lr: 0.0012 | Elapsed: 13.0445 min
+Epoch: 266 Train loss: 0.9684 acc: 0.7634 | lr: 0.0012 | Elapsed: 13.0814 min
+Epoch: 267 Train loss: 0.9594 acc: 0.7668 | lr: 0.0012 | Elapsed: 13.1185 min
+Epoch: 268 Train loss: 0.9635 acc: 0.7634 | lr: 0.0011 | Elapsed: 13.1554 min
+Epoch: 269 Train loss: 0.9584 acc: 0.7664 | Val loss: 4.2342 acc: 0.4136 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 19.46 36.3/18.4/16.0/15.4 (BP = 0.968 ratio = 0.968 hyp_len = 3698 ref_len = 3819)
+Test Bleu: 19.46 | lr: 0.0011 | Elapsed: 13.3104 min
+Epoch: 270 Train loss: 0.9587 acc: 0.7665 | lr: 0.0011 | Elapsed: 13.3468 min
+Epoch: 271 Train loss: 0.9601 acc: 0.7665 | lr: 0.0011 | Elapsed: 13.3839 min
+Epoch: 272 Train loss: 0.9601 acc: 0.7651 | lr: 0.0011 | Elapsed: 13.4207 min
+Epoch: 273 Train loss: 0.9551 acc: 0.7684 | lr: 0.0011 | Elapsed: 13.4576 min
+Epoch: 274 Train loss: 0.9497 acc: 0.769 | lr: 0.0011 | Elapsed: 13.4945 min
+Epoch: 275 Train loss: 0.9514 acc: 0.7685 | lr: 0.0011 | Elapsed: 13.5315 min
+Epoch: 276 Train loss: 0.9445 acc: 0.7709 | lr: 0.0011 | Elapsed: 13.5683 min
+Epoch: 277 Train loss: 0.9491 acc: 0.7684 | lr: 0.0011 | Elapsed: 13.6052 min
+Epoch: 278 Train loss: 0.9451 acc: 0.7722 | lr: 0.0011 | Elapsed: 13.6424 min
+Epoch: 279 Train loss: 0.9404 acc: 0.771 | Val loss: 4.273 acc: 0.4287 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 19.19 38.8/20.7/18.1/17.5 (BP = 0.855 ratio = 0.865 hyp_len = 3302 ref_len = 3819)
+Test Bleu: 19.19 | lr: 0.0011 | Elapsed: 13.7659 min
+Epoch: 280 Train loss: 0.9399 acc: 0.7742 | lr: 0.0011 | Elapsed: 13.8033 min
+Epoch: 281 Train loss: 0.9389 acc: 0.7726 | lr: 0.0011 | Elapsed: 13.8402 min
+Epoch: 282 Train loss: 0.9384 acc: 0.7721 | lr: 0.0011 | Elapsed: 13.877 min
+Epoch: 283 Train loss: 0.9398 acc: 0.7727 | lr: 0.0011 | Elapsed: 13.9142 min
+Epoch: 284 Train loss: 0.9365 acc: 0.7721 | lr: 0.0011 | Elapsed: 13.951 min
+Epoch: 285 Train loss: 0.9337 acc: 0.776 | lr: 0.0011 | Elapsed: 13.9878 min
+Epoch: 286 Train loss: 0.9395 acc: 0.771 | lr: 0.0011 | Elapsed: 14.0248 min
+Epoch: 287 Train loss: 0.9327 acc: 0.7753 | lr: 0.0011 | Elapsed: 14.0616 min
+Epoch: 288 Train loss: 0.9233 acc: 0.777 | lr: 0.0011 | Elapsed: 14.0985 min
+Epoch: 289 Train loss: 0.9273 acc: 0.776 | Val loss: 4.2719 acc: 0.4279 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 19.38 36.5/19.2/16.8/16.1 (BP = 0.930 ratio = 0.932 hyp_len = 3559 ref_len = 3819)
+Test Bleu: 19.38 | lr: 0.0011 | Elapsed: 14.2396 min
+Epoch: 290 Train loss: 0.924 acc: 0.776 | lr: 0.0011 | Elapsed: 14.277 min
+Epoch: 291 Train loss: 0.9264 acc: 0.7766 | lr: 0.0011 | Elapsed: 14.314 min
+Epoch: 292 Train loss: 0.923 acc: 0.7785 | lr: 0.0011 | Elapsed: 14.351 min
+Epoch: 293 Train loss: 0.9226 acc: 0.779 | lr: 0.0011 | Elapsed: 14.3881 min
+Epoch: 294 Train loss: 0.9244 acc: 0.7768 | lr: 0.0011 | Elapsed: 14.4251 min
+Epoch: 295 Train loss: 0.9238 acc: 0.7783 | lr: 0.0011 | Elapsed: 14.4621 min
+Epoch: 296 Train loss: 0.9183 acc: 0.7793 | lr: 0.0011 | Elapsed: 14.499 min
+Epoch: 297 Train loss: 0.9202 acc: 0.7799 | lr: 0.0011 | Elapsed: 14.5357 min
+Epoch: 298 Train loss: 0.9159 acc: 0.7811 | lr: 0.0011 | Elapsed: 14.5724 min
+Epoch: 299 Train loss: 0.9151 acc: 0.7814 | Val loss: 4.2952 acc: 0.4166 | Evaluation on Test Set
+Evaluation Phase over 193 sentences-----------------------
+SacreBLEU: BLEU = 19.41 37.9/19.5/16.9/16.2 (BP = 0.914 ratio = 0.917 hyp_len = 3503 ref_len = 3819)
+Test Bleu: 19.41 | lr: 0.0011 | Elapsed: 14.7139 min
